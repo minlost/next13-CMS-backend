@@ -1,34 +1,71 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# README: Next.js 13 Study Project for Scraping Data from Sreality Server
 
-## Getting Started
+## Introduction
 
-First, run the development server:
+This is a study project built with Next.js 13. Its main purpose is to scrape data from the Sreality server. The application has two distinct parts: one for non-logged-in users and one for logged-in users.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Non-Logged-In Users:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Directly view scraping results.
+- Save results in a CSV format.
+- If the application is running on a local server, save the results to `/root/data`.
+- **Watchlist**: Users can track price development on their watchlist, allowing for monitoring of price changes.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Logged-In Users:
 
-## Learn More
+- Create user profiles.
+- Save data to the database for future access or analysis.
 
-To learn more about Next.js, take a look at the following resources:
+## Technology Stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Framework:** Next.js 13
+- **Authentication:** Clerk
+- **Database:** MySQL with Planetscale and Prisma
+- **Web Scraping:** Puppeteer
+- **UI Components:** Custom-made and utilizing Radix UI with the UI library Shadcn.
+- **Additional Libraries/Tools:**
+  - React Hot Toast
+  - React Form
+  - Axios
+  - Tailwind CSS
+  - Zod
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Setup & Installation
 
-## Deploy on Vercel
+1. **Clone the Repository**: git clone [repository_url]
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. **Set Up Environment Variables**:
+   Ensure you set up your own environment variables. Check the `.env.example` file in the repository for the necessary variables.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+3. **Install Dependencies**:npm install
+
+4. **Scraping Configuration**:
+   Set the `SCRAPE_TIMEOUT` environment variable to a minimum of 5000ms (5 seconds) to avoid overloading the servers.
+
+5. **Setup Database**:
+   [Instructions on setting up the MySQL database with Planetscale and Prisma.]
+
+6. **Run the Application**: npm run dev
+
+# Important Disclaimer
+
+I do not assume any responsibility for the use of this code. Ensure you comprehend the implications and potential repercussions before deploying or using this application, particularly regarding scraping and data collection from third-party platforms.
+
+## Application Screenshots
+
+![Screenshot 1](https://i.ibb.co/MGPJpkM/1.png)
+![Screenshot 2](https://i.ibb.co/sjxhZhy/2.png)
+![Screenshot 3](https://i.ibb.co/44kXBRL/3.png)
+![Screenshot 4](https://i.ibb.co/pZyzJrN/4.png)
+
+## Contributing
+
+[Optional: Insert instructions here if you'd like others to contribute to the project.]
+
+## License
+
+This project is licensed under the MIT License. See the `LICENSE` file for details.
+
+For further questions or inquiries, please raise an issue or contact the maintainer directly.
