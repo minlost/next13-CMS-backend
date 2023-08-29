@@ -54,7 +54,7 @@ const CarouselForm: FC<CarouselFormProps> = ({ initialData }) => {
   const origin = useOrigin()
 
   const title = initialData ? "Edit Corusel" : "Add Corusel"
-  const description = initialData ? "Edit your Corusel" : "Add new Corusel"
+  const description = initialData ? "Edit your Corusel" : "Nový Corusel"
   const postMessage = initialData
     ? "Corusel has been updated"
     : "Corusel has been added"
@@ -135,7 +135,7 @@ const CarouselForm: FC<CarouselFormProps> = ({ initialData }) => {
             onClick={() => setOpen(true)}
           >
             <Trash className="h-4 w-4 mr-2" />
-            Delete Carousel
+            Smazat
           </Button>
         )}
       </div>
@@ -150,7 +150,7 @@ const CarouselForm: FC<CarouselFormProps> = ({ initialData }) => {
             name="imageUrl"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Background image</FormLabel>
+                <FormLabel>Obrázek produktu</FormLabel>
                 <FormControl>
                   <ImageUpload
                     value={field.value ? [field.value] : []}
@@ -171,7 +171,7 @@ const CarouselForm: FC<CarouselFormProps> = ({ initialData }) => {
                 <FormItem>
                   <FormLabel className="inline-flex gap-2 items-center">
                     Label{" "}
-                    <p className="text-neutral-500 text-[0.6rem]">Optional</p>
+                    <p className="text-neutral-500 text-[0.6rem]">Volitelné</p>
                   </FormLabel>
                   <FormControl>
                     <Input
@@ -189,7 +189,7 @@ const CarouselForm: FC<CarouselFormProps> = ({ initialData }) => {
               name="link"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Link to</FormLabel>
+                  <FormLabel>Odkaz corouselu</FormLabel>
                   <FormControl>
                     <Input
                       disabled={isLoading}

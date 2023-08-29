@@ -52,13 +52,12 @@ const ColorForm: FC<ColorFormProps> = ({ initialData }) => {
 
   const origin = useOrigin()
 
-  const title = initialData ? "Edit Color" : "Add Color"
-  const description = initialData ? "Edit your Color" : "Add new Color"
+  const title = initialData ? "Editovat" : "Přidat bavu"
+  const description = initialData ? "Upravit barvu" : "Nová barva"
   const postMessage = initialData
     ? "Color has been updated"
     : "Color has been added"
-  const titleButton = initialData ? "Save Changes" : "Add Color"
-  const action = initialData ? "edit" : "add"
+  const action = initialData ? "Editovat" : "Přidat"
 
   const onSubmit = async (data: ColorFormValues) => {
     try {
@@ -150,7 +149,7 @@ const ColorForm: FC<ColorFormProps> = ({ initialData }) => {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Name</FormLabel>
+                  <FormLabel>Název</FormLabel>
                   <FormControl>
                     <Input
                       disabled={isLoading}
@@ -169,7 +168,7 @@ const ColorForm: FC<ColorFormProps> = ({ initialData }) => {
               name="value"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Value</FormLabel>
+                  <FormLabel>Hodnota</FormLabel>
                   <FormControl>
                     <div className="flex items-center gap-x-4">
                       <Input

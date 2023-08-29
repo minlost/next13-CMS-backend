@@ -23,18 +23,18 @@ const BillboardClient: FC<BillboardClientProps> = ({ data }) => {
       <div className="flex items-center justify-between ">
         <Heading
           title={`Billboards (${data.length})`}
-          description="Manage your billboards here"
+          description="Spravujte své billboardy zde"
         />
         <Button
           onClick={() => router.push(`/${params.storeId}/billboards/new`)}
         >
           <Plus className="mr-2 h-4 w-4" />
-          Add New
+          Nový billboard
         </Button>
       </div>
       <Separator />
       <DataTable columns={columns} data={data} searchKey="label" />
-      <Heading title="Billboards" description="Manage your billboards here" />
+      <Heading title="Billboards" description="Billboards API" />
       <Separator />
       <ApiList entityIdName="billboards" entityName="billboards" />
     </>

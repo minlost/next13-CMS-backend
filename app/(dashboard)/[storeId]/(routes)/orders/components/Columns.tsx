@@ -23,27 +23,27 @@ export type OrderColumn = {
 export const columns: ColumnDef<OrderColumn>[] = [
   {
     accessorKey: "products",
-    header: "Products",
+    header: "Zakoupené produkty",
   },
   {
     accessorKey: "phone",
-    header: "Phone",
+    header: "Telefon",
   },
   {
     accessorKey: "adress",
-    header: "Adress",
+    header: "Adresa",
   },
   {
     accessorKey: "totalPrice",
-    header: "Total Price",
+    header: "Celková cena",
   },
   {
     accessorKey: "isPaid",
-    header: "Paid",
+    header: "Zaplaceno",
   },
   {
     accessorKey: "createdAt",
-    header: "Date",
+    header: "Datum vztvoření  ",
   },
   {
     id: "action",

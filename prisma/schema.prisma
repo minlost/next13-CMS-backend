@@ -23,6 +23,7 @@ model Store {
   products Product[] @relation("StoreToProduct")
   orders Order[] @relation("StoreToOrder")
   carousels Carousel[] @relation("StoreToCarousel")
+  articles Article[] @relation("StoreToArticle")
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -185,4 +186,17 @@ model OrderItem {
 
   @@index([orderId])
   @@index([productId])
+}
+
+
+model Article {
+  id          String    @id @default(cuid())
+  title       String
+  content     Json?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  userId      String      
+  storeId     String
+  store       Store     @relation("StoreToArticle", fields: [storeId], references: [id])
+  @@index([storeId])
 }

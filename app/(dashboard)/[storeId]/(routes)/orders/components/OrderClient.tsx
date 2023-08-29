@@ -14,8 +14,8 @@ const OrderClient: FC<OrderClientProps> = ({ data }) => {
   return (
     <>
       <Heading
-        title={`Orders (${data.length})`}
-        description="Manage your orders here"
+        title={`Objednávky (${data.length})`}
+        description="Spravujte objednávky"
       />
 
       <Separator />

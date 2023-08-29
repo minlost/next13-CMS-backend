@@ -42,15 +42,15 @@ const OrderDetailInfo: FC<OrderDetailInfoProps> = ({ initialData }) => {
       )
       router.refresh()
       toast({
-        title: "Order has been updated",
-        description: "Order has been deleted",
+        title: "Objednávka upravena",
+        description: "Objednávka byla upravena",
         variant: "success",
       })
     } catch (error) {
       toast({
         title: "Error",
         variant: "destructive",
-        description: "Something went wrong, please try again later",
+        description: "Něco se pokazilo, zkuste to prosím znovu.",
       })
     } finally {
       setIsLoading(false)
@@ -71,8 +71,8 @@ const OrderDetailInfo: FC<OrderDetailInfoProps> = ({ initialData }) => {
   return (
     <>
       <EditModal
-        title="Edit customer"
-        description="Edit customer info"
+        title="Edituj zákazníka"
+        description="Edituj zákazníkovi údaje"
         isOpen={open}
         onClose={() => setOpen(false)}
         loading={isLoading}
@@ -87,8 +87,8 @@ const OrderDetailInfo: FC<OrderDetailInfoProps> = ({ initialData }) => {
 
       <Card className="w-[500px] relative">
         <CardHeader>
-          <CardTitle>Client Info</CardTitle>
-          <CardDescription>This is info about the client</CardDescription>
+          <CardTitle>Kontaktní údaje</CardTitle>
+          <CardDescription>Kontaktní údaje o zakazníkovi</CardDescription>
         </CardHeader>
         <CardContent>
           <Edit

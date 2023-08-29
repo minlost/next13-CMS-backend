@@ -79,10 +79,10 @@ const CellAction: FC<CellActionProps> = ({ data }) => {
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
-          <DropdownMenuLabel>Actions</DropdownMenuLabel>
+          <DropdownMenuLabel>Akce</DropdownMenuLabel>
           <DropdownMenuItem onClick={() => onCopy(data.id)}>
             <Copy className="mr-2 h-4 w-4 " />
-            Copy Id
+            Zkopírovat ID do schránky
           </DropdownMenuItem>
           <DropdownMenuItem
             onClick={() =>
@@ -90,11 +90,11 @@ const CellAction: FC<CellActionProps> = ({ data }) => {
             }
           >
             <Edit className="mr-2 h-4 w-4 " />
-            Update
+            Editovat
           </DropdownMenuItem>
           <DropdownMenuItem onClick={() => setOpen(true)} disabled={isLoading}>
             <Trash className="mr-2 h-4 w-4 " />
-            Delete
+            Smazaz
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

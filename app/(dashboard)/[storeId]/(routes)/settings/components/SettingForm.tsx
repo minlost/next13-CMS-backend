@@ -107,7 +107,7 @@ const SettingForm: FC<SettingFormProps> = ({ initialData }) => {
         loading={isLoading}
       />
       <div className="flex items-center justify-between">
-        <Heading title="Settings" description="Manage store settings" />
+        <Heading title="Settings" description="Spravujte nastavení zde" />
         <Button
           disabled={isLoading}
           variant="destructive"
@@ -115,7 +115,7 @@ const SettingForm: FC<SettingFormProps> = ({ initialData }) => {
           onClick={() => setOpen(true)}
         >
           <Trash className="h-4 w-4 mr-2" />
-          Delete Store
+          Smazat Eshop
         </Button>
       </div>
       <Separator />
@@ -130,7 +130,7 @@ const SettingForm: FC<SettingFormProps> = ({ initialData }) => {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Name</FormLabel>
+                  <FormLabel>Jméno</FormLabel>
                   <FormControl>
                     <Input
                       disabled={isLoading}
@@ -144,7 +144,7 @@ const SettingForm: FC<SettingFormProps> = ({ initialData }) => {
             />
           </div>
           <Button disabled={isLoading} type="submit">
-            Save Changes
+            Uložit nastavení
           </Button>
         </form>
       </Form>

@@ -3,7 +3,7 @@
 import React, { useState } from "react"
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/Popover"
 import { Store } from "@prisma/client"
-import { useStoreModal } from "@/hooks/use-store-modal"
+import { useStoreModal } from "@/hooks/useStoreModal"
 import { useParams, useRouter } from "next/navigation"
 import { Button } from "../ui/Button"
 import { ChevronsUpDown, PlusCircle, Store as StoreIcon } from "lucide-react"
@@ -97,7 +97,7 @@ const StoreSwitcher = ({ className, items = [] }: StoreSwitechrProps) => {
               }}
             >
               <PlusCircle className="mr-4 h-4 w-4" />
-              Create Store
+              Založit nový obchod
             </CommandItem>
           </CommandList>
         </Command>

@@ -1,71 +1,63 @@
-# README: Next.js 13 Study Project for Scraping Data from Sreality Server
+# My Next.js 13 CMS Backend
 
-## Introduction
+This repository contains the backend code for a Content Management System (CMS) built on Next.js 13. The system has a frontend for administrative tasks and a backend that provides APIs for connecting with an e-commerce frontend. The project aims to be a generic solution, allowing users to create an e-shop after login.
 
-This is a study project built with Next.js 13. Its main purpose is to scrape data from the Sreality server. The application has two distinct parts: one for non-logged-in users and one for logged-in users.
+## Table of Contents
 
-## Features
+- [Technologies](#technologies)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contribution](#contribution)
+- [License](#license)
 
-### Non-Logged-In Users:
+## Technologies
 
-- Directly view scraping results.
-- Save results in a CSV format.
-- If the application is running on a local server, save the results to `/root/data`.
-- **Watchlist**: Users can track price development on their watchlist, allowing for monitoring of price changes.
+- **Backend Framework**: Next.js 13
+- **Database**: MySQL via PlanetScale
+- **ORM**: Prisma
+- **Validation**: Zod
+- **Authentication**: Clerk
+- **CSS**: Tailwind with Radix(Shacn) for utility
+- **HTTP Client**: Axios
+- **Form Handling**: Hook Forms
+- **Text Editor**: WYSIWYG via Editor.js
+- **File Upload**: Cloud-based storage
+- **Payment**: Stripe
 
-### Logged-In Users:
+## Installation
 
-- Create user profiles.
-- Save data to the database for future access or analysis.
+Clone this repository and then run:
 
-## Technology Stack
+\`\`\`bash
+npm install
 
-- **Framework:** Next.js 13
-- **Authentication:** Clerk
-- **Database:** MySQL with Planetscale and Prisma
-- **Web Scraping:** Puppeteer
-- **UI Components:** Custom-made and utilizing Radix UI with the UI library Shadcn.
-- **Additional Libraries/Tools:**
-  - React Hot Toast
-  - React Form
-  - Axios
-  - Tailwind CSS
-  - Zod
+# or
 
-## Setup & Installation
+yarn install
+\`\`\`
 
-1. **Clone the Repository**: git clone [repository_url]
+### Environment Variables
 
-2. **Set Up Environment Variables**:
-   Ensure you set up your own environment variables. Check the `.env.example` file in the repository for the necessary variables.
+Copy `.env.example` to `.env` and fill in your database and other environment-specific details.
 
-3. **Install Dependencies**:npm install
+## Usage
 
-4. **Scraping Configuration**:
-   Set the `SCRAPE_TIMEOUT` environment variable to a minimum of 5000ms (5 seconds) to avoid overloading the servers.
+Once the server is running, you can navigate to the admin panel to manage content. You can create new e-shops.
 
-5. **Setup Database**:
-   [Instructions on setting up the MySQL database with Planetscale and Prisma.]
+### API
 
-6. **Run the Application**: npm run dev
+Data for each category can be fetched from the API.
 
-# Important Disclaimer
+## Contribution
 
-I do not assume any responsibility for the use of this code. Ensure you comprehend the implications and potential repercussions before deploying or using this application, particularly regarding scraping and data collection from third-party platforms.
+If you would like to contribute, please fork the repository and use a feature branch. Pull requests are warmly welcome.
 
-## Application Screenshots
+## Screenshots
 
-![Screenshot 1](https://i.ibb.co/MGPJpkM/1.png)
-![Screenshot 2](https://i.ibb.co/sjxhZhy/2.png)
-![Screenshot 3](https://i.ibb.co/44kXBRL/3.png)
-![Screenshot 4](https://i.ibb.co/pZyzJrN/4.png)
-
-## Contributing
-
-[Optional: Insert instructions here if you'd like others to contribute to the project.]
+![Screenshot 1](https://iili.io/Hyhg9Eu.png)
+![Screenshot 2](https://iili.io/HyhgqhP.png)
+![Screenshot 3](https://iili.io/HyhgBQ1.png
 
 ## License
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
-
-For further questions or inquiries, please raise an issue or contact the maintainer directly.
+This project is licensed under the MIT License.

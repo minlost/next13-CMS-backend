@@ -19,7 +19,6 @@ const ProductdPage = async ({ params }: ProductPageProps) => {
     },
   })
 
-  console.log(product)
   const categories = await db.category.findMany({
     where: {
       storeId: params.storeId,

@@ -68,15 +68,15 @@ const OrderDetail: FC<OrderDetailProps> = ({ initialData }) => {
       router.refresh()
       router.push(`/${params.storeId}/orders`)
       toast({
-        title: "Deleting billboard",
-        description: "Order has been deleted",
+        title: "Smazání objednávky",
+        description: "Objednávka byla smazána",
         variant: "success",
       })
     } catch (error) {
       toast({
         title: "Error",
         variant: "destructive",
-        description: "Something went wrong, please try again later",
+        description: "Něco se pokazilo, zkuste to prosím znovu.",
       })
     } finally {
       setIsLoading(false)
@@ -95,8 +95,8 @@ const OrderDetail: FC<OrderDetailProps> = ({ initialData }) => {
       <div className="flex items-center justify-between">
         <Heading
           title={title}
-          description={`This order is ${
-            initialData?.isPaid ? "paid" : "not paid"
+          description={`Tato objednávka ${
+            initialData?.isPaid ? "zaplacena" : "není zaplacena"
           }`}
           className={`${
             initialData?.isPaid ? "text-green-500" : "text-red-500"
@@ -110,7 +110,7 @@ const OrderDetail: FC<OrderDetailProps> = ({ initialData }) => {
             onClick={() => setOpen(true)}
           >
             <Trash className="h-4 w-4 mr-2" />
-            Delete Order
+            Smazat objednávku
           </Button>
         )}
       </div>

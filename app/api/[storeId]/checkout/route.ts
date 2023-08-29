@@ -4,6 +4,7 @@ import { NextResponse } from "next/server"
 
 import { db } from "@/lib/client/prismaDb"
 import { stripe } from "@/lib/stripe/stripe"
+import { Product } from "@prisma/client"
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -32,7 +33,7 @@ export async function POST(
 
   const value = productIds.map((productId: ProductIds) => productId.id)
 
-  const products = await db.product.findMany({
+  const products: Product[] = await db.product.findMany({
     where: {
       id: {
         in: productIds.map((productId: ProductIds) => productId.id),
@@ -42,7 +43,7 @@ export async function POST(
 
   const line_items: Stripe.Checkout.SessionCreateParams.LineItem[] = []
 
-  products.forEach((product) => {
+  products.forEach((product: Product) => {
     line_items.push({
       quantity: productIds.find(
         (productId: ProductIds) => productId.id === product.id
@@ -66,8 +67,8 @@ export async function POST(
           quantity: productId.quantity,
           price:
             productId.quantity *
-            (products.find((product) => product.id === productId.id)?.price ??
-              0),
+            (products.find((product: Product) => product.id === productId.id)
+              ?.price ?? 0),
           product: {
             connect: {
               id: productId.id,
@@ -86,6 +87,24 @@ export async function POST(
         },
       },
     },
+  })
+
+  await productIds.forEach(async (productId: ProductIds) => {
+    const productToBeUpdated = products.find(
+      (product: Product) => product.id === productId.id
+    )
+    const currentQuantity = productToBeUpdated && productToBeUpdated.quantity
+    if (!currentQuantity) {
+      return
+    }
+    const newQuantity = currentQuantity - productId.quantity
+
+    await db.product.updateMany({
+      where: { id: productId.id },
+      data: {
+        quantity: newQuantity,
+      },
+    })
   })
 
   const customer = await stripe.customers.create({

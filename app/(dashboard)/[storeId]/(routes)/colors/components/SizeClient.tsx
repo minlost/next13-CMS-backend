@@ -23,16 +23,16 @@ const ColorClient: FC<ColorClientProps> = ({ data }) => {
       <div className="flex items-center justify-between ">
         <Heading
           title={`Color (${data.length})`}
-          description="Manage your colors here"
+          description="Spravujte své barvy zde"
         />
         <Button onClick={() => router.push(`/${params.storeId}/colors/new`)}>
           <Plus className="mr-2 h-4 w-4" />
-          Add New
+          Nový
         </Button>
       </div>
       <Separator />
       <DataTable columns={columns} data={data} searchKey="name" />
-      <Heading title="Solors" description="Manage your colors here" />
+      <Heading title="Colors" description="Colors API" />
       <Separator />
       <ApiList entityIdName="colorId" entityName="colors" />
     </>

@@ -59,13 +59,13 @@ const CategoryForm: FC<CategoryFormProps> = ({ initialData, billboards }) => {
 
   const origin = useOrigin()
 
-  const title = initialData ? "Edit Category" : "Add Category"
-  const description = initialData ? "Edit your Category" : "Add new Category"
+  const title = initialData ? "Editovat" : "Přidat kategorii"
+  const description = initialData ? "Edituj kategorii" : "Nová kategorie"
   const postMessage = initialData
     ? "Category has been updated"
     : "Category has been added"
-  const titleButton = initialData ? "Save Changes" : "Add Category"
-  const action = initialData ? "edit" : "add"
+  const titleButton = initialData ? "Uložit změny" : "Přidat kategorii"
+  const action = initialData ? "Editovat" : "Přidat"
 
   const onSubmit = async (data: CategoryFormValues) => {
     try {
@@ -141,7 +141,7 @@ const CategoryForm: FC<CategoryFormProps> = ({ initialData, billboards }) => {
             onClick={() => setOpen(true)}
           >
             <Trash className="h-4 w-4 mr-2" />
-            Delete Category
+            Smazat kategorii
           </Button>
         )}
       </div>
@@ -157,7 +157,7 @@ const CategoryForm: FC<CategoryFormProps> = ({ initialData, billboards }) => {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Name</FormLabel>
+                  <FormLabel>Název</FormLabel>
                   <FormControl>
                     <Input
                       disabled={isLoading}

@@ -1,7 +1,6 @@
 import { db } from "@/lib/client/prismaDb"
 import { auth } from "@clerk/nextjs"
 import { redirect } from "next/navigation"
-import { FC } from "react"
 import SettingForm from "./components/SettingForm"
 
 interface SettingsPageProps {
@@ -10,7 +9,7 @@ interface SettingsPageProps {
   }
 }
 
-const SettingsPage: FC<SettingsPageProps> = async ({ params }) => {
+const SettingsPage = async ({ params }: SettingsPageProps) => {
   const { userId } = auth()
   if (!userId) {
     redirect("/sign-in")

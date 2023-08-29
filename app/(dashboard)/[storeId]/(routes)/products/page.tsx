@@ -32,9 +32,11 @@ const ProductPage = async ({ params }: ProductPageProps) => {
     category: product.category.name,
     size: product.size.name,
     color: product.color.name,
+    colorRgb: product.color.value,
     isFeatured: product.isFeatured,
     isArchived: product.isArchived,
     createdAt: format(product.createdAt, "dd/MM/yyyy"),
+    quantity: product.quantity,
   }))
 
   return (

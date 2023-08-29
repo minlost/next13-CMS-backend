@@ -1,9 +1,10 @@
-import "./globals.css"
+import "../styles/globals.css"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import { ClerkProvider } from "@clerk/nextjs"
 import { ModalProvider } from "@/providers/ModalProvider"
 import { Toaster } from "@/components/ui/Toaster"
+import { ThemeProvider } from "@/providers/ThemesProvider"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -21,9 +22,11 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className={inter.className}>
-          <ModalProvider />
-          {children}
-          <Toaster />
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <ModalProvider />
+            {children}
+            <Toaster />
+          </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>

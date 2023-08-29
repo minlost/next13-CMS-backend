@@ -23,7 +23,7 @@ const CarouselClient: FC<CarouselClientProps> = ({ data }) => {
       <div className="flex items-center justify-between ">
         <Heading
           title={`Carousels (${data.length})`}
-          description="Manage your Carousels here - max 4 carousels"
+          description="Spravujte své carousely zde - max. 4"
         />
         {data.length >= 4 ? (
           <Button
@@ -31,20 +31,20 @@ const CarouselClient: FC<CarouselClientProps> = ({ data }) => {
             onClick={() => router.push(`/${params.storeId}/carousels/new`)}
           >
             <Plus className="mr-2 h-4 w-4" />
-            Add New
+            Dosaženo maximálního počtu carouselů
           </Button>
         ) : (
           <Button
             onClick={() => router.push(`/${params.storeId}/carousels/new`)}
           >
             <Plus className="mr-2 h-4 w-4" />
-            Add New
+            Nový carousel
           </Button>
         )}
       </div>
       <Separator />
       <DataTable columns={columns} data={data} searchKey="label" />
-      <Heading title="Carousels" description="Manage your Carousels here" />
+      <Heading title="Carousels" description="Carousels API" />
       <Separator />
       <ApiList entityIdName="carousel" entityName="carousels" />
     </>

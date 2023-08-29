@@ -50,12 +50,11 @@ const SizeForm: FC<SizeFormProps> = ({ initialData }) => {
 
   const origin = useOrigin()
 
-  const title = initialData ? "Edit Size" : "Add Size"
-  const description = initialData ? "Edit your size" : "Add new size"
+  const title = initialData ? "Editovat veliksot" : "Přidat velikost"
+  const description = initialData ? "Editace velikosti" : "Přidání velikosti"
   const postMessage = initialData
     ? "Size has been updated"
     : "Size has been added"
-  const titleButton = initialData ? "Save Changes" : "Add Size"
   const action = initialData ? "edit" : "add"
 
   const onSubmit = async (data: SizeFormValues) => {
@@ -129,7 +128,7 @@ const SizeForm: FC<SizeFormProps> = ({ initialData }) => {
             onClick={() => setOpen(true)}
           >
             <Trash className="h-4 w-4 mr-2" />
-            Delete Size
+            Smazat
           </Button>
         )}
       </div>
@@ -145,7 +144,7 @@ const SizeForm: FC<SizeFormProps> = ({ initialData }) => {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Name</FormLabel>
+                  <FormLabel>Název</FormLabel>
                   <FormControl>
                     <Input
                       disabled={isLoading}
@@ -164,7 +163,7 @@ const SizeForm: FC<SizeFormProps> = ({ initialData }) => {
               name="value"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Value</FormLabel>
+                  <FormLabel>Hodnota</FormLabel>
                   <FormControl>
                     <Input
                       disabled={isLoading}

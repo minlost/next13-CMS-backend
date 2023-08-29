@@ -32,8 +32,8 @@ const CellAction: FC<CellActionProps> = ({ data }) => {
   const onCopy = (id: string) => {
     navigator.clipboard.writeText(id)
     toast({
-      title: "Copied",
-      description: "Copied to clipboard",
+      title: "Zkopírovat",
+      description: "Id bylo zkopírováno do schránky",
     })
   }
 
@@ -46,15 +46,15 @@ const CellAction: FC<CellActionProps> = ({ data }) => {
       router.refresh()
       router.push(`/${params.storeId}/billboards`)
       toast({
-        title: "Deleting billboard",
-        description: "Billboards has been deleted",
+        title: "Smazat billboard",
+        description: "Billboard byl úspěšně smazán",
         variant: "success",
       })
     } catch (error) {
       toast({
         title: "Error",
         variant: "destructive",
-        description: "Something went wrong, please try again later",
+        description: "Něco se pokazilo, zkuste to prosím znovu.",
       })
     } finally {
       setIsLoading(false)
@@ -74,15 +74,15 @@ const CellAction: FC<CellActionProps> = ({ data }) => {
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="ghost">
-            <span className="sr-only"> Open menu </span>
+            <span className="sr-only"> Otevřít menu </span>
             <MoreHorizontal className="h-5 w-5 p-0" />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
-          <DropdownMenuLabel>Actions</DropdownMenuLabel>
+          <DropdownMenuLabel>Akce</DropdownMenuLabel>
           <DropdownMenuItem onClick={() => onCopy(data.id)}>
             <Copy className="mr-2 h-4 w-4 " />
-            Copy Id
+            Kopírovat ID
           </DropdownMenuItem>
           <DropdownMenuItem
             onClick={() =>
@@ -90,11 +90,11 @@ const CellAction: FC<CellActionProps> = ({ data }) => {
             }
           >
             <Edit className="mr-2 h-4 w-4 " />
-            Update
+            Editovat
           </DropdownMenuItem>
           <DropdownMenuItem onClick={() => setOpen(true)} disabled={isLoading}>
             <Trash className="mr-2 h-4 w-4 " />
-            Delete
+            Smazat
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

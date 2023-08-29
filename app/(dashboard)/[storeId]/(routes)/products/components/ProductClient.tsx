@@ -23,16 +23,16 @@ const ProductClient: FC<ProductClientProps> = ({ data }) => {
       <div className="flex items-center justify-between ">
         <Heading
           title={`Products (${data.length})`}
-          description="Manage your products here"
+          description="Spravujte své produkty zde"
         />
         <Button onClick={() => router.push(`/${params.storeId}/products/new`)}>
           <Plus className="mr-2 h-4 w-4" />
-          Add New
+          Nový produkt
         </Button>
       </div>
       <Separator />
       <DataTable columns={columns} data={data} searchKey="name" />
-      <Heading title="Products" description="Manage your products here" />
+      <Heading title="Products" description="Products API" />
       <Separator />
       <ApiList entityIdName="productsId" entityName="products" />
     </>

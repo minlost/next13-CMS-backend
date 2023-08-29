@@ -13,6 +13,8 @@ export type ProductColumn = {
   isFeatured: boolean
   isArchived: boolean
   createdAt: string
+  quantity: number
+  colorRgb: string
 }
 
 export const columns: ColumnDef<ProductColumn>[] = [
@@ -20,6 +22,7 @@ export const columns: ColumnDef<ProductColumn>[] = [
     accessorKey: "name",
     header: "Name",
   },
+
   {
     accessorKey: "isFeatured",
     header: "Featured",
@@ -41,6 +44,10 @@ export const columns: ColumnDef<ProductColumn>[] = [
     header: "Size",
   },
   {
+    accessorKey: "quantity",
+    header: "Quantity",
+  },
+  {
     accessorKey: "color",
     header: "Color",
     cell: ({ row }) => (
@@ -48,7 +55,7 @@ export const columns: ColumnDef<ProductColumn>[] = [
         {row.original.color}
         <div
           className="h-6 w-6 rounded-full border"
-          style={{ backgroundColor: row.original.color }}
+          style={{ backgroundColor: row.original.colorRgb }}
         />
       </div>
     ),

@@ -43,6 +43,7 @@ const formSchema = z.object({
   sizeId: z.string().min(2),
   isFeatured: z.boolean().default(false).optional(),
   isArchived: z.boolean().default(false).optional(),
+  quantity: z.coerce.number().default(1).optional(),
 })
 interface ProductFormProps {
   initialData:
@@ -80,6 +81,7 @@ const ProductForm: FC<ProductFormProps> = ({
         sizeId: "",
         isFeatured: false,
         isArchived: false,
+        quantity: 1,
       }
 
   const { toast } = useToast()
@@ -92,13 +94,13 @@ const ProductForm: FC<ProductFormProps> = ({
 
   const origin = useOrigin()
 
-  const title = initialData ? "Edit Product" : "Add Product"
-  const description = initialData ? "Edit your Product" : "Add new Product"
+  const title = initialData ? "Editovat produkt" : "Přidat produkt"
+  const description = initialData ? "Edituj" : "Nový produkt"
   const postMessage = initialData
     ? "Product has been updated"
     : "Product has been added"
   const titleButton = initialData ? "Save Changes" : "Add Product"
-  const action = initialData ? "edit" : "add"
+  const action = initialData ? "Edit" : "Add"
 
   const onSubmit = async (data: ProductFormValues) => {
     try {
@@ -189,7 +191,7 @@ const ProductForm: FC<ProductFormProps> = ({
             name="images"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Background image</FormLabel>
+                <FormLabel>Obrázek produktu</FormLabel>
                 <FormControl>
                   <ImageUpload
                     value={field.value.map((image) => image.url)}
@@ -214,7 +216,7 @@ const ProductForm: FC<ProductFormProps> = ({
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Name</FormLabel>
+                  <FormLabel>Jméno</FormLabel>
                   <FormControl>
                     <Input
                       disabled={isLoading}
@@ -231,14 +233,27 @@ const ProductForm: FC<ProductFormProps> = ({
               name="price"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Price</FormLabel>
+                  <FormLabel>Cena</FormLabel>
                   <FormControl>
                     <Input
                       type="number"
                       disabled={isLoading}
-                      placeholder="99.99"
                       {...field}
+                      placeholder="99.99"
                     />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="quantity"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Množství</FormLabel>
+                  <FormControl>
+                    <Input type="number" disabled={isLoading} {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -249,7 +264,7 @@ const ProductForm: FC<ProductFormProps> = ({
               name="categoryId"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Category</FormLabel>
+                  <FormLabel>Kategorie</FormLabel>
                   <Select
                     disabled={isLoading}
                     onValueChange={field.onChange}
@@ -281,7 +296,7 @@ const ProductForm: FC<ProductFormProps> = ({
               name="sizeId"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Size</FormLabel>
+                  <FormLabel>Velikost</FormLabel>
                   <Select
                     disabled={isLoading}
                     onValueChange={field.onChange}
@@ -313,7 +328,7 @@ const ProductForm: FC<ProductFormProps> = ({
               name="colorId"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Color</FormLabel>
+                  <FormLabel>Barva</FormLabel>
                   <Select
                     disabled={isLoading}
                     onValueChange={field.onChange}
@@ -353,9 +368,10 @@ const ProductForm: FC<ProductFormProps> = ({
                     />
                   </FormControl>
                   <div className="space-y-1 leading-none">
-                    <FormLabel>Featured</FormLabel>
+                    <FormLabel>Promováno</FormLabel>
                     <FormDescription>
-                      This product will appear on the home page
+                      Tento produkt bude zobrazen na úvodní stránce vašeho
+                      obchodu
                     </FormDescription>
                   </div>
                 </FormItem>
@@ -374,9 +390,9 @@ const ProductForm: FC<ProductFormProps> = ({
                     />
                   </FormControl>
                   <div className="space-y-1 leading-none">
-                    <FormLabel>Archived</FormLabel>
+                    <FormLabel>Archovováno</FormLabel>
                     <FormDescription>
-                      This product will be hidden from your store
+                      Tento produkt bude skrytý na vašem obchodě
                     </FormDescription>
                   </div>
                 </FormItem>
@@ -386,7 +402,6 @@ const ProductForm: FC<ProductFormProps> = ({
           <Button disabled={isLoading} type="submit">
             {action}
           </Button>
-          <div>{initialData?.quantity}</div>
         </form>
       </Form>
       <Separator />

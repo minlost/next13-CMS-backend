@@ -28,17 +28,17 @@ const AlertModal: FC<AlertModalProps> = ({
   return (
     <>
       <Modal
-        title="Are you sure you want to delete this store?"
+        title="Orpavdu si přejete provést tuto akci?"
         isOpen={isOpen}
-        description="This action cannot be undone."
+        description="Tato akce je nevratná."
         onClose={onClose}
       >
         <div className="pt-6 space-x-2 flex item-center justify-end w-full">
           <Button disabled={loading} variant="outline" onClick={onClose}>
-            Cancel
+            Zrušit
           </Button>
           <Button disabled={loading} variant="destructive" onClick={onConfirm}>
-            Continue
+            Pokračovat
           </Button>
         </div>
       </Modal>

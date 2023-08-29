@@ -23,16 +23,16 @@ const SizeClient: FC<SizeClientProps> = ({ data }) => {
       <div className="flex items-center justify-between ">
         <Heading
           title={`Sizes (${data.length})`}
-          description="Manage your sizes here"
+          description="Spravujte své velikosti zde"
         />
         <Button onClick={() => router.push(`/${params.storeId}/sizes/new`)}>
           <Plus className="mr-2 h-4 w-4" />
-          Add New
+          Nová velikost
         </Button>
       </div>
       <Separator />
       <DataTable columns={columns} data={data} searchKey="name" />
-      <Heading title="Sizes" description="Manage your sizes here" />
+      <Heading title="Sizes" description="Sizes API" />
       <Separator />
       <ApiList entityIdName="sizes" entityName="sizes" />
     </>

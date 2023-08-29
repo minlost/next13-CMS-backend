@@ -50,7 +50,7 @@ export async function GET(
   req: Request,
   { params }: { params: { storeId: string } }
 ) {
-  console.log("tisknu")
+  console.log("aaaa")
   try {
     // const { userId } = auth()
 

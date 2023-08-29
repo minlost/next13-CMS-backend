@@ -78,8 +78,8 @@ const OrderDetailAddress: FC<OrderDetailAddressProps> = ({ address }) => {
   return (
     <>
       <EditModal
-        title="Edit adress"
-        description="Edit address"
+        title="Edituj adresu"
+        description="Zde můžete upravit adresu zákazníka"
         isOpen={open}
         onClose={() => setOpen(false)}
         loading={isLoading}
@@ -94,8 +94,8 @@ const OrderDetailAddress: FC<OrderDetailAddressProps> = ({ address }) => {
 
       <Card className="w-[500px] relative">
         <CardHeader>
-          <CardTitle>Address</CardTitle>
-          <CardDescription>This is address</CardDescription>
+          <CardTitle>Adresa</CardTitle>
+          <CardDescription>Toto je zákazníkova adresa</CardDescription>
         </CardHeader>
         <CardContent>
           <Edit
@@ -108,7 +108,7 @@ const OrderDetailAddress: FC<OrderDetailAddressProps> = ({ address }) => {
             <div className="mb-4 grid grid-cols-[25px_1fr] items-start pb-2 last:mb-0 last:pb-0">
               <Castle className="h-4 w-4" />{" "}
               <div className="space-y-1">
-                <p className="text-sm font-medium leading-none">City: </p>
+                <p className="text-sm font-medium leading-none">Město: </p>
 
                 <p className="text-sm text-muted-foreground">
                   {address?.city || "No street"}
@@ -118,7 +118,9 @@ const OrderDetailAddress: FC<OrderDetailAddressProps> = ({ address }) => {
             <div className="mb-4 grid grid-cols-[25px_1fr] items-start pb-2 last:mb-0 last:pb-0">
               <StretchHorizontal className="h-4 w-4" />
               <div className="space-y-1">
-                <p className="text-sm font-medium leading-none">Street: </p>
+                <p className="text-sm font-medium leading-none">
+                  Ulice a číslo domu:{" "}
+                </p>
 
                 <p className="text-sm text-muted-foreground">
                   {address?.street || "No street"}
@@ -128,7 +130,7 @@ const OrderDetailAddress: FC<OrderDetailAddressProps> = ({ address }) => {
             <div className="mb-4 grid grid-cols-[25px_1fr] items-start pb-2 last:mb-0 last:pb-0">
               <Flag className="w-4 h-4" />
               <div className="space-y-1">
-                <p className="text-sm font-medium leading-none">Zip: </p>
+                <p className="text-sm font-medium leading-none">PSČ: </p>
 
                 <p className="text-sm text-muted-foreground">
                   {address?.zip || "No Zip Code"}
@@ -138,7 +140,7 @@ const OrderDetailAddress: FC<OrderDetailAddressProps> = ({ address }) => {
             <div className="mb-4 grid grid-cols-[25px_1fr] items-start pb-2 last:mb-0 last:pb-0">
               <Globe className="w-4 h-4" />
               <div className="space-y-1">
-                <p className="text-sm font-medium leading-none">Country: </p>
+                <p className="text-sm font-medium leading-none">Země: </p>
 
                 <p className="text-sm text-muted-foreground">
                   {address?.country || "No Country"}

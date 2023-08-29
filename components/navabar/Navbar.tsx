@@ -4,6 +4,7 @@ import MainNav from "./MainNav"
 import StoreSwitcher from "./StoreSwitcher"
 import { redirect } from "next/navigation"
 import { db } from "@/lib/client/prismaDb"
+import { ThemeBtn } from "../ui/ThemeBtn"
 
 interface NavbarProps {}
 
@@ -31,6 +32,7 @@ const Navbar: FC<NavbarProps> = async () => {
         </div>
         <div className="ml-auto flex item-center space-x-4">
           <UserButton afterSignOutUrl="/" />
+          <ThemeBtn />
         </div>
       </div>
     </div>

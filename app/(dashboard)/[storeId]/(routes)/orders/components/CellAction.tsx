@@ -47,15 +47,15 @@ const CellAction: FC<CellActionProps> = ({ data }) => {
       router.refresh()
       router.push(`/${params.storeId}/order`)
       toast({
-        title: "Deleting order",
-        description: "Order has been deleted",
+        title: "Smazání objednávky",
+        description: "Objednávka byla smazána",
         variant: "success",
       })
     } catch (error) {
       toast({
         title: "Error",
         variant: "destructive",
-        description: "Something went wrong, please try again later",
+        description: "Něco se pokazilo, zkuste to prosím znovu.",
       })
     } finally {
       setIsLoading(false)
@@ -80,20 +80,20 @@ const CellAction: FC<CellActionProps> = ({ data }) => {
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
-          <DropdownMenuLabel>Actions</DropdownMenuLabel>
+          <DropdownMenuLabel>Akce</DropdownMenuLabel>
           <DropdownMenuItem onClick={() => onCopy(data.id)}>
             <Copy className="mr-2 h-4 w-4 " />
-            Copy Id
+            Zkopírovat ID do schránky
           </DropdownMenuItem>
           <DropdownMenuItem
             onClick={() => router.push(`/${params.storeId}/orders/${data.id}`)}
           >
             <Edit className="mr-2 h-4 w-4 " />
-            Detail
+            Detail objednávky
           </DropdownMenuItem>
           <DropdownMenuItem onClick={() => setOpen(true)} disabled={isLoading}>
             <Trash className="mr-2 h-4 w-4 " />
-            Delete
+            Samzat
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

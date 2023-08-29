@@ -51,13 +51,13 @@ const BillboardForm: FC<BillboardFormProps> = ({ initialData }) => {
 
   const origin = useOrigin()
 
-  const title = initialData ? "Edit Billboard" : "Add Billboard"
-  const description = initialData ? "Edit your billboard" : "Add new billboard"
+  const title = initialData ? "Editovat" : "Přidat billboard"
+  const description = initialData ? "Editovat billboard" : "Nový billboard"
   const postMessage = initialData
-    ? "Billboard has been updated"
-    : "Billboard has been added"
-  const titleButton = initialData ? "Save Changes" : "Add Billboard"
-  const action = initialData ? "edit" : "add"
+    ? "Billboard byl upraven"
+    : "Billboard byl přidán"
+  const titleButton = initialData ? "Uložit změnz" : "Přidat billboard"
+  const action = initialData ? "Edit" : "Přidat"
 
   const onSubmit = async (data: BillboardFormValues) => {
     try {

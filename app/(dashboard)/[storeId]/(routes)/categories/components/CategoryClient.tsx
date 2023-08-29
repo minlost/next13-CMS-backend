@@ -23,18 +23,18 @@ const CategoryClient: FC<CategorylientProps> = ({ data }) => {
       <div className="flex items-center justify-between ">
         <Heading
           title={`Categories (${data.length})`}
-          description="Manage your categories here"
+          description="Spravujte své kategorie zde"
         />
         <Button
           onClick={() => router.push(`/${params.storeId}/categories/new`)}
         >
           <Plus className="mr-2 h-4 w-4" />
-          Add New
+          Nová kategorie
         </Button>
       </div>
       <Separator />
       <DataTable columns={columns} data={data} searchKey="name" />
-      <Heading title="Categories" description="Manage your categories here" />
+      <Heading title="Categories" description="Categories API" />
       <Separator />
       <ApiList entityIdName="categoryId" entityName="categories" />
     </>

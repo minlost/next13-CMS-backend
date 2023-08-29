@@ -79,20 +79,20 @@ const CellAction: FC<CellActionProps> = ({ data }) => {
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
-          <DropdownMenuLabel>Actions</DropdownMenuLabel>
+          <DropdownMenuLabel>Akce</DropdownMenuLabel>
           <DropdownMenuItem onClick={() => onCopy(data.id)}>
             <Copy className="mr-2 h-4 w-4 " />
-            Copy Id
+            Zkopárovat ID do schránky
           </DropdownMenuItem>
           <DropdownMenuItem
             onClick={() => router.push(`/${params.storeId}/colors/${data.id}`)}
           >
             <Edit className="mr-2 h-4 w-4 " />
-            Update
+            Edit
           </DropdownMenuItem>
           <DropdownMenuItem onClick={() => setOpen(true)} disabled={isLoading}>
             <Trash className="mr-2 h-4 w-4 " />
-            Delete
+            Smazat
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
