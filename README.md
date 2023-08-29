@@ -56,7 +56,7 @@ If you would like to contribute, please fork the repository and use a feature br
 
 ![Screenshot 1](https://iili.io/Hyhg9Eu.png)
 ![Screenshot 2](https://iili.io/HyhgqhP.png)
-![Screenshot 3](https://iili.io/HyhgBQ1.png
+![Screenshot 3](https://iili.io/HyhgBQ1.png)
 
 ## License
 
